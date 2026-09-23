@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hadi & Riya | Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#e8e0d2;color:#514638;font-family:'Montserrat',sans-serif}
+body.lock-scroll{overflow:hidden}
+button,input,select,textarea{font-family:inherit}
+img{max-width:100%;display:block}
+.container{width:100%;max-width:520px;margin:auto;background:#f8f4ec;overflow:hidden}
+section{padding:75px 25px;text-align:center}
+.serif{font-family:'Cormorant Garamond',serif}
+.small-title{font-size:10px;letter-spacing:4px;color:#a17a3d;margin-bottom:14px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:43px;font-weight:500;color:#584837}
+.divider{width:55px;height:1px;background:#bd9958;margin:20px auto}
+#openingScreen{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;background:linear-gradient(rgba(45,35,25,.50),rgba(45,35,25,.75)),url("1.jpg") center/cover;transition:opacity 1s ease,visibility 1s ease,transform 1s ease}
+#openingScreen.opened{opacity:0;visibility:hidden;transform:scale(1.05);pointer-events:none}
+.opening-decoration{font-size:25px;color:#e0c184;margin-bottom:18px}
+.opening-small{font-size:10px;letter-spacing:5px;margin-bottom:18px}
+#openingScreen h1{font-family:'Cormorant Garamond',serif;font-size:66px;line-height:.9;font-weight:400}
+#openingScreen h1 span{color:#d8b879}
+.opening-date{margin-top:23px;font-size:12px;letter-spacing:5px}
+.guest-box{margin-top:42px;padding:15px 30px;min-width:270px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.guest-label{font-size:9px;letter-spacing:3px;opacity:.8;margin-bottom:6px}
+#openingGuest{font-family:'Cormorant Garamond',serif;font-size:21px}
+.open-invitation{margin-top:25px;padding:14px 30px;border:1px solid #dfc18a;border-radius:30px;background:#b08a45;color:white;font-size:10px;letter-spacing:2px;cursor:pointer;transition:.3s}
+.open-invitation:active{transform:scale(.95)}
+.scroll-hint{position:absolute;bottom:25px;color:#dfc18a;animation:floating 2s infinite}
+@keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.hero{min-height:100vh;position:relative;display:flex;justify-content:center;align-items:center;color:white;background:linear-gradient(rgba(45,35,25,.38),rgba(45,35,25,.65)),url("2.jpg") center/cover}
+.hero-content{position:relative;z-index:2}
+.hero-label{font-size:11px;letter-spacing:5px}
+.hero h2{font-family:'Cormorant Garamond',serif;font-size:68px;line-height:.9;font-weight:400;margin-top:20px}
+.hero h2 span{color:#e0c184}
+.hero-date{margin-top:25px;font-size:12px;letter-spacing:5px}
+.quote{font-family:'Cormorant Garamond',serif;font-size:25px;line-height:1.5;font-style:italic}
+.quote-source{margin-top:15px;font-size:10px;letter-spacing:2px}
+.couple-photo{width:190px;height:245px;object-fit:cover;margin:30px auto 18px;border-radius:100px 100px 5px 5px}
+.couple-name{font-family:'Cormorant Garamond',serif;font-size:31px;color:#655039}
+.parents{font-size:11px;line-height:1.8;margin-top:8px}
+.and{font-family:'Cormorant Garamond',serif;font-size:55px;color:#b08a45;margin:20px 0}
+.countdown-section{background:#eee5d7}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:30px}
+.time-box{background:#faf7f1;border:1px solid #dfd0b7;padding:15px 5px}
+.time-number{font-family:'Cormorant Garamond',serif;font-size:32px;color:#a57d3e}
+.time-label{font-size:8px;letter-spacing:1px}
+.event-card{margin-top:30px;padding:30px 20px;background:white;box-shadow:0 10px 35px rgba(70,50,25,.08)}
+.event-icon{font-size:30px;color:#b08a45}
+.event-name{font-family:'Cormorant Garamond',serif;font-size:30px;margin-top:8px}
+.event-date{font-size:11px;letter-spacing:2px;margin:10px 0}
+.event-time{font-size:12px}
+.address{font-size:11px;line-height:1.8;color:#76695a;margin-top:18px}
+.maps-btn{display:inline-block;margin-top:20px;padding:10px 22px;border:1px solid #b08a45;color:#9a7337;text-decoration:none;font-size:10px;letter-spacing:1px}
+.story{text-align:left;margin-top:35px;border-left:1px solid #c8aa77;padding-left:20px}
+.story-item{margin-bottom:30px}
+.story-year{font-size:9px;letter-spacing:3px;color:#a47c3e}
+.story-title{font-family:'Cormorant Garamond',serif;font-size:28px;margin:5px 0}
+.story-text{font-size:11px;line-height:1.8;color:#74685a}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:30px}
+.gallery img{width:100%;height:220px;object-fit:cover}
+.gallery img:nth-child(2),.gallery img:nth-child(3){height:270px}
+.gift-section{background:#eee5d7}
+.gift-box{background:white;margin-top:20px;padding:28px 20px}
+.bank{font-family:'Cormorant Garamond',serif;font-size:28px}
+.account{font-size:19px;letter-spacing:2px;margin:12px 0}
+.account-name{font-size:10px;color:#777}
+.copy-btn{border:0;margin-top:18px;padding:10px 20px;background:#b08a45;color:white;cursor:pointer}
+.rsvp-form{margin-top:25px}
+.input{width:100%;padding:14px;margin-bottom:12px;border:1px solid #d8cbb8;background:white;outline:none}
+textarea.input{min-height:100px}
+.submit-btn{width:100%;border:0;padding:14px;background:#b08a45;color:white;letter-spacing:2px;cursor:pointer}
+.wish{background:white;margin-top:18px;padding:20px;text-align:left}
+.wish-name{font-size:12px;font-weight:600}
+.wish-text{font-size:11px;line-height:1.7;margin-top:8px}
+.footer{padding:90px 25px 110px;color:white;background:linear-gradient(rgba(50,40,30,.55),rgba(50,40,30,.75)),url("2.jpg") center/cover}
+.footer h2{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:400}
+.footer p{font-size:11px;line-height:1.8;margin-top:20px}
+.music-btn{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:1px solid #b08a45;background:#fffaf1;color:#a17a3d;z-index:999;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.15)}
+.music-spin{animation:spin 4s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.fade{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+.fade.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body class="lock-scroll">
+
+<div id="openingScreen">
+<div class="opening-decoration">✦</div>
+<div class="opening-small">THE WEDDING OF</div>
+<h1>Hadi <span>&</span> Riya</h1>
+<div class="opening-date">12 • 12 • 2026</div>
+<div class="guest-box">
+<div class="guest-label">KEPADA YTH.</div>
+<div id="openingGuest">Bapak/Ibu/Saudara/i</div>
+</div>
+<button class="open-invitation" onclick="openInvitation()">BUKA UNDANGAN</button>
+<div class="scroll-hint">↓</div>
+</div>
+
+<div class="container" id="invitationContent">
+
+<section class="hero">
+<div class="hero-content">
+<div class="hero-label">THE WEDDING OF</div>
+<h2>Hadi<br><span>&</span><br>Riya</h2>
+<div class="hero-date">12 . 12 . 2026</div>
+</div>
+</section>
+
+<section class="fade">
+<div class="small-title">WEDDING INVITATION</div>
+<h2 class="section-title">Hadi & Riya</h2>
+<div class="divider"></div>
+<p class="quote">"Cinta bukan tentang menemukan seseorang yang sempurna, tetapi tentang melihat seseorang dengan sempurna."</p>
+<p class="quote-source">Hadi & Riya</p>
+</section>
+
+<section class="fade">
+<div class="small-title">BRIDE & GROOM</div>
+<h2 class="section-title">Mempelai</h2>
+<div class="divider"></div>
+<p style="font-size:11px;line-height:1.8;">Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.</p>
+<img class="couple-photo" src="Hh.jpg" alt="Hadi">
+<div class="couple-name">Hadianto Kurniawan Tan</div>
+<div class="parents">Putra dari<br><strong>Bapak Tan Tjoen Hwa</strong><br>&<br><strong>Ibu Tjhin Tjhiu Loe</strong></div>
+<div class="and">&</div>
+<img class="couple-photo" src="Ria.jpg" alt="Riya">
+<div class="couple-name">Ilmi Riadoh</div>
+<div class="parents">Putri dari<br><strong>Bapak Muhammad Saleh</strong><br>&<br><strong>Ibu Nur Alam Ray</strong></div>
+</section>
+
+<section class="countdown-section fade">
+<div class="small-title">SAVE THE DATE</div>
+<h2 class="section-title">12 Desember 2026</h2>
+<div class="divider"></div>
+<div class="countdown">
+<div class="time-box"><div class="time-number" id="days">00</div><div class="time-label">HARI</div></div>
+<div class="time-box"><div class="time-number" id="hours">00</div><div class="time-label">JAM</div></div>
+<div class="time-box"><div class="time-number" id="minutes">00</div><div class="time-label">MENIT</div></div>
+<div class="time-box"><div class="time-number" id="seconds">00</div><div class="time-label">DETIK</div></div>
+</div>
+</section>
+
+<section class="fade">
+<div class="small-title">WEDDING EVENT</div>
+<h2 class="section-title">Akad & Resepsi</h2>
+<div class="divider"></div>
+<p style="font-size:11px;line-height:1.8;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+<div class="event-card">
+<div class="event-icon">♡</div>
+<div class="event-name">Akad & Resepsi</div>
+<div class="event-date">SABTU · 12 DESEMBER 2026</div>
+<div class="event-time">Pukul 11.00 WIB</div>
+<div class="address"><strong>Vihara Sila Paramita</strong><br><br>Jl. Cipinang Jaya Raya No. 1, RT 9/RW 7, Cipinang Besar Selatan, Kec. Jatinegara, Jakarta Timur</div>
+<a class="maps-btn" href="https://share.google/uluIyRWerclfMMDhH" target="_blank">BUKA GOOGLE MAPS</a>
+</div>
+</section>
+
+<section class="fade">
+<div class="small-title">OUR JOURNEY</div>
+<h2 class="section-title">Love Story</h2>
+<div class="divider"></div>
+<p style="font-family:'Cormorant Garamond';font-size:23px;font-style:italic;">"Every love story is beautiful, but ours is our favorite."</p>
+<div class="story">
+<div class="story-item"><div class="story-year">FIRST MEET</div><div class="story-title">Awal Pertemuan</div><div class="story-text">Setiap kisah memiliki awal. Kisah kami dimulai dari sebuah pertemuan sederhana hingga akhirnya membawa kami pada perjalanan yang indah.</div></div>
+<div class="story-item"><div class="story-year">RELATIONSHIP</div><div class="story-title">Saling Mengenal</div><div class="story-text">Dari waktu yang kami habiskan bersama, tumbuh rasa nyaman, saling memahami dan saling mendukung.</div></div>
+<div class="story-item"><div class="story-year">FOREVER</div><div class="story-title">Menuju Pernikahan</div><div class="story-text">Kami memutuskan untuk melangkah bersama menuju kehidupan baru sebagai satu keluarga.</div></div>
+</div>
+</section>
+
+<section class="fade">
+<div class="small-title">OUR MOMENTS</div>
+<h2 class="section-title">Our Gallery</h2>
+<div class="divider"></div>
+<p style="font-family:'Cormorant Garamond';font-size:22px;font-style:italic;">A moment is better when shared with you.</p>
+<div class="gallery">
+<img src="Day.jpg" alt="Foto Hadi dan Riya">
+<img src="Day1.jpg" alt="Foto Hadi dan Riya">
+<img src="Day2.jpg" alt="Foto Hadi dan Riya">
+<img src="Day4.jpg" alt="Foto Hadi dan Riya">
+</div>
+</section>
+
+<section class="gift-section fade">
+<div class="small-title">WEDDING GIFT</div>
+<h2 class="section-title">Tanda Kasih</h2>
+<div class="divider"></div>
+<p style="font-size:11px;line-height:1.8;">Doa restu Anda merupakan karunia yang sangat berarti bagi kami.</p>
+</section>
+
+<section class="fade">
+<div class="small-title">RSVP</div>
+<h2 class="section-title">Konfirmasi Kehadiran</h2>
+<div class="divider"></div>
+<p style="font-size:11px;line-height:1.8;">Silakan konfirmasi kehadiran melalui WhatsApp.</p>
+<form class="rsvp-form" onsubmit="sendRSVP(event)">
+<input class="input" id="rsvpName" type="text" placeholder="Nama Anda" required>
+<select class="input" id="rsvpStatus" required>
+<option value="">Konfirmasi Kehadiran</option>
+<option value="Hadir">Hadir</option>
+<option value="Tidak Hadir">Tidak Hadir</option>
+<option value="Masih Ragu">Masih Ragu</option>
+</select>
+<input class="input" id="rsvpJumlah" type="number" min="1" placeholder="Jumlah tamu" required>
+<button class="submit-btn" type="submit">KIRIM KONFIRMASI</button>
+</form>
+</section>
+
+<section class="fade">
+<div class="small-title">BEST WISHES</div>
+<h2 class="section-title">Doa & Ucapan</h2>
+<div class="divider"></div>
+<div class="wish">
+<div class="wish-name">Keluarga & Sahabat</div>
+<div class="wish-text">Semoga menjadi keluarga yang selalu dipenuhi kebahagiaan, cinta dan keberkahan.</div>
+</div>
+</section>
+
+<section class="footer">
+<div class="small-title" style="color:#dfc18a;">THANK YOU</div>
+<h2>Hadi & Riya</h2>
+<p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir dan memberikan doa restu.</p>
+<p>Atas doa & restunya, kami ucapkan terima kasih.</p>
+<div style="margin-top:35px;font-size:11px;letter-spacing:3px;">12 · 12 · 2026</div>
+</section>
+
+</div>
+
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">♪</button>
+<audio id="music" loop preload="auto"><source src="Ful.mp3" type="audio/mpeg"></audio>
+
+<script>
+const params=new URLSearchParams(window.location.search);
+const guest=params.get("to");
+if(guest){
+const guestName=decodeURIComponent(guest.replace(/\+/g," "));
+document.getElementById("openingGuest").innerText=guestName;
+}
+
+function openInvitation(){
+const opening=document.getElementById("openingScreen");
+const invitation=document.getElementById("invitationContent");
+const music=document.getElementById("music");
+const musicButton=document.getElementById("musicBtn");
+invitation.style.opacity="1";
+opening.classList.add("opened");
+document.body.classList.remove("lock-scroll");
+if(music){
+music.volume=.7;
+music.play().then(function(){
+if(musicButton)musicButton.classList.add("music-spin");
+}).catch(function(error){console.log("Musik tidak dapat diputar:",error);});
+}
+setTimeout(function(){window.scrollTo({top:0,behavior:"smooth"});},700);
+}
+
+const weddingDate=new Date("December 12, 2026 11:00:00").getTime();
+function updateCountdown(){
+const now=new Date().getTime();
+const distance=weddingDate-now;
+if(distance<=0){
+["days","hours","minutes","seconds"].forEach(id=>document.getElementById(id).innerText="00");
+return;
+}
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds=Math.floor((distance%(1000*60))/1000);
+document.getElementById("days").innerText=String(days).padStart(2,"0");
+document.getElementById("hours").innerText=String(hours).padStart(2,"0");
+document.getElementById("minutes").innerText=String(minutes).padStart(2,"0");
+document.getElementById("seconds").innerText=String(seconds).padStart(2,"0");
+}
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+function sendRSVP(event){
+event.preventDefault();
+const name=document.getElementById("rsvpName").value;
+const status=document.getElementById("rsvpStatus").value;
+const jumlah=document.getElementById("rsvpJumlah").value;
+const message="Halo Hadi & Riya,%0A%0ASaya ingin melakukan konfirmasi kehadiran.%0A%0ANama: "+encodeURIComponent(name)+"%0AKehadiran: "+encodeURIComponent(status)+"%0AJumlah tamu: "+encodeURIComponent(jumlah);
+const phone="6281212000347";
+window.open("https://wa.me/"+phone+"?text="+message,"_blank");
+}
+
+function toggleMusic(){
+const music=document.getElementById("music");
+const button=document.getElementById("musicBtn");
+if(!music)return;
+if(music.paused){
+music.play().then(function(){button.classList.add("music-spin");}).catch(function(){alert("Musik tidak dapat diputar.");});
+}else{
+music.pause();
+button.classList.remove("music-spin");
+}
+}
+
+const observer=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting)entry.target.classList.add("show");
+});
+},{threshold:.12});
+document.querySelectorAll(".fade").forEach(function(element){observer.observe(element);});
+</script>
+</body>
+</html>
